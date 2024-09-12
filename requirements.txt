@@ -1,0 +1,5 @@
+langchain_community
+langchain_chroma
+langchain_core
+beautifulsoup4
+html5lib
