@@ -19,11 +19,12 @@ DATABASE = Chroma(
 
 
 PROMPT_TEMPLATE = """
+名稱 排名
 {context}
 
 ---
 
-根據以上資料用繁體中文回答問題: {question}
+根據以上資料用繁體中文回答排名: {question}
 """
 
 def run():
@@ -33,7 +34,7 @@ def run():
         if query_text == "exit":
             break
 
-        response = query_rag(query_text, 2, LLM_MODEL, PROMPT_TEMPLATE, DATABASE)
+        response = query_rag(query_text, 100, LLM_MODEL, PROMPT_TEMPLATE, DATABASE)
         print(response)
         print("\n")
         

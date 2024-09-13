@@ -29,7 +29,7 @@ def generate_results(query_text, query_num, database):
 def generate_prompt(query_text, query_results, prompt_template):
     
     # 構建上下文文本
-    context_text    = "\n\n---\n\n".join([doc.page_content for doc, _score in query_results])
+    context_text    = "\n".join([f'{doc.page_content} {doc.metadata["rank"]}' for doc, _score in query_results])
     prompt_template = ChatPromptTemplate.from_template(prompt_template)
     prompt          = prompt_template.format(context=context_text, question=query_text)
 
